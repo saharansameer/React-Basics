@@ -1,0 +1,22 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+
+body {
+  background-color: #272a34;
+  transform: scale(1.25);
+}
+
+@media screen and (max-width: 410px) {
+  .input-btn {
+    flex-direction: column;
+  }
+}
+
+.copy-btn:hover {
+  background-color: #001aff;
+  transition: 400ms;
+}
