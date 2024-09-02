@@ -6,29 +6,84 @@ function App() {
 
   return (
     <>
-    <div className="w-full h-screen duration-100" style={{backgroundColor: color}}>
-      <h1 className="text-center text-6xl pt-7 font-bold">Backgorund Color Changer</h1>
-      <div className="flex justify-center flex-wrap pt-28 text-em">
-        <button className=" bg-red-600 m-5 hover:border-purple-200 text-white font-bold text-xl"
-        onClick={() => setColor('#D10000')}>Red</button>
-        <button className=" bg-green-800 m-5 hover:border-purple-200 text-white font-bold text-xl" 
-        onClick={() => setColor(' #0AC112 ')}>Green</button>
-        <button className=" bg-yellow-500 m-5 hover:border-purple-200 text-white font-bold text-xl" 
-        onClick={() => setColor(' #EFCB18 ')}>Yellow</button>
-        <button className=" bg-blue-700 m-5 hover:border-purple-200 text-white font-bold text-xl" 
-        onClick={() => setColor('#3218EF')}>Blue</button>
-        <button className=" bg-cyan-300 m-5 hover:border-purple-200 text-white font-bold text-xl" 
-        onClick={() => setColor(' #19DFDC')}>Cyan</button>
-        <button className=" bg-orange-600 m-5 hover:border-purple-200 text-white font-bold text-xl" 
-        onClick={() => setColor(' #FF710F')}>Orange</button>
-        <button className=" bg-lime-400 m-5 hover:border-purple-200 text-white font-bold text-xl" 
-        onClick={() => setColor('#CCE305')}>Lime</button>
-        <button className=" bg-emerald-300 m-5 hover:border-purple-200 text-white font-bold text-xl" 
-        onClick={() => setColor('#66E7A2')}>Emerald</button>
+      <div
+        className="w-full h-screen"
+        style={{ backgroundColor: `${color}` }}
+      >
+        <h1 className="text-center text-6xl pt-7 font-bold">Backgorund Color Changer</h1>
       </div>
-    </div>
+      <div className="fixed flex flex-wrap justify-center bottom-12 px-2 w-full ">
+        <div className="flex flex-wrap justify-center gap-3 shadow-2xl rounded-xl px-6 py-5 bg-gray-100">
+          <button
+            onClick={() => setColor("#FFF")}
+            className="bg-gray-200 hover:bg-gray-300 px-4 py-1 rounded-3xl font-bold"
+          >
+            Default
+          </button>
+          <button
+            onClick={() => setColor("#DB0606")}
+            className="bg-red-600 hover:bg-red-700 px-4 py-1 rounded-3xl font-bold"
+          >
+            Red
+          </button>
+          <button
+            onClick={() => setColor("#FFCA2D")}
+            className="bg-yellow-400 hover:bg-yellow-500 px-4 py-1 rounded-3xl font-bold"
+          >
+            Yellow
+          </button>
+          <button
+            onClick={() => setColor("#202234")}
+            className="bg-slate-700 hover:bg-slate-600 px-4 py-1 rounded-3xl font-bold"
+          >
+            Slate
+          </button>
+          <button
+            onClick={() => setColor("#FA7319")}
+            className="bg-orange-500 hover:bg-orange-600 px-4 py-1 rounded-3xl font-bold"
+          >
+            Orange
+          </button>
+          <button
+            onClick={() => setColor("#36DE4C")}
+            className="bg-green-500 hover:bg-green-600 px-4 py-1 rounded-3xl font-bold"
+          >
+            Green
+          </button>
+          <button
+            onClick={() => setColor("#FCAFFB")}
+            className="bg-pink-300 hover:bg-pink-400 px-4 py-1 rounded-3xl font-bold"
+          >
+            Pink
+          </button>
+          <button
+            onClick={() => setColor("#7BDDFD")}
+            className="bg-cyan-400 hover:bg-cyan-500 px-4 py-1 rounded-3xl font-bold"
+          >
+            Cyan
+          </button>
+          <button
+            onClick={() => setColor("#8AF32F")}
+            className="bg-lime-300 hover:bg-lime-400 px-4 py-1 rounded-3xl font-bold"
+          >
+            Lime
+          </button>
+          <button
+            onClick={() => setColor("#7700DE")}
+            className="bg-purple-600 hover:bg-purple-700 px-4 py-1 rounded-3xl font-bold"
+          >
+            Purple
+          </button>
+          <button
+            onClick={() => setColor("#66E7A2")}
+            className="bg-emerald-300 hover:bg-emerald-300 px-4 py-1 rounded-3xl font-bold"
+          >
+            Emerald
+          </button>
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
 export default App
