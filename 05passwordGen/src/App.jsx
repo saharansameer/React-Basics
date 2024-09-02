@@ -1,5 +1,4 @@
-import { useState, useCallback, useEffect, useRef } from 'react'
-import './App.css'
+import { useState, useCallback, useEffect, useRef } from "react";
 
 function App() {
   const [length, setLength] = useState(8);
@@ -11,83 +10,105 @@ function App() {
     let pass = "";
     let alpha = "ABCDEFGHIJKLMNOPQRSTUVQXYZabcdefghijklmnopqrstuvwxyz";
 
-    if (numberAllowed) alpha+= "0123456789";
-    if (charAllowed) alpha+= "!@#$%^&*-_=+~`";
+    if (numberAllowed) alpha += "0123456789";
+    if (charAllowed) alpha += "!@#$%^&*-_=+~`";
 
-    for (let i=1; i<=length; i++) {
+    for (let i = 1; i <= length; i++) {
       let index = Math.floor(Math.random() * alpha.length + 1);
       pass += alpha.charAt(index);
     }
 
     setPassword(pass);
+  }, [length, numberAllowed, charAllowed, setPassword]);
 
-  }, [length, numberAllowed, charAllowed, setPassword])
-
-  //useRef
-  const passwordRef = useRef(null);
   const copyPasswordToClip = useCallback(() => {
+    passwordRef.current?.select();
     window.navigator.clipboard.writeText(password);
-    window.alert("Password Copied Successfully!");
-  }, [password])
+  }, [password]);
 
   //useEffect
   useEffect(() => {
-    passwordGenerator()
-  }, [length, numberAllowed, charAllowed, passwordGenerator])
+    passwordGenerator();
+  }, [length, numberAllowed, charAllowed, passwordGenerator]);
+
+  //useRef
+  const passwordRef = useRef(null);
 
   return (
     <>
-    <h1 className='text-5xl text-center font-bold text-white pt-10 pb-3'>Password Generator</h1>
-    <div className='flex justify-center mt-5'>
-      <div className='flex justify-center flex-col bg-slate-400'>
-        <div className='bg-slate-400 flex justify-center mx-auto input-btn'>
-          <input type="text"
-          className='outline-none rounded-xl px-3 font-bold text-orange-500 bg-zinc-100 m-5'
-          value={password}
-          readOnly
-          ref={passwordRef}
-          />
-          <button className='outline-none bg-blue-600 text-white px-3 pb-1 h-10 rounded-xl font-bold ml-3 m-5 copy-btn'
-          onClick={copyPasswordToClip}>Copy</button>
-        </div>
+      <h1 className="text-5xl text-center font-bold text-white mt-3">
+        Password Generator
+      </h1>
+      <div className="w-full max-w-md mx-auto h-60 shadow-lg rounded-xl px-5 my-5 bg-slate-500">
+        <div className="flex flex-col">
+          <div className="flex flex-row gap-5 items-center mt-8">
+            <input
+              type="text"
+              className="outline-none w-full py-2 px-2 rounded-xl font-bold text-orange-500 bg-zinc-100"
+              value={password}
+              readOnly
+              ref={passwordRef}
+            />
+            <button
+              className="outline-none bg-blue-600 text-white px-3 py-2 rounded-lg font-bold hover:bg-blue-700 transition-all ease-in-out"
+              onClick={copyPasswordToClip}
+            >
+              Copy
+            </button>
+          </div>
 
-        <div className='flex justify-center flex-col w-full text-2xl'>
-          <div className='flex justify-center flex-row cursor-pointer'>
-            <input type="range"
-            className='rangeBar w-36 mr-5'
-            min={8}
-            max={20}
-            defaultValue={8}
-            onChange={(bar) => {setLength(bar.target.value)}}
+          <div className="flex justify-center items-center gap-5 my-8">
+            <input
+              type="range"
+              className="cursor-pointer"
+              min={8}
+              max={20}
+              defaultValue={8}
+              onChange={(bar) => {
+                setLength(bar.target.value);
+              }}
             />
-            <label className='font-bold text-lg' htmlFor="rangeBar">Length: {length}</label>
+            <label className="font-bold text-xl" htmlFor="rangeBar">
+              Length: {length}
+            </label>
           </div>
-          
-          <div className='flex justify-center items-center flex-row py-4'>
-            <input type="checkbox" 
-            className='numCheckBox size-4'
-            defaultChecked={numberAllowed}
-            onChange={() => {
-              setNumberAllowed((prev) => !prev);
-            }}
-            />
-            <label className='text-lg mx-2 mr-5' htmlFor="numCheckBox">Numbers</label>
-            <input type="checkbox"
-            className='charCheckBox size-4'
-            defaultChecked={charAllowed}
-            onChange={() => {
-              setCharAllowed((prev) => !prev);
-            }}
-            />
-            <label className='text-lg mx-2' htmlFor="charCheckBox">Characters</label>
+          <div className="flex flex-row justify-center gap-5">
+            <div>
+              <input
+                type="checkbox"
+                id="numCheckBox"
+                className="mx-1 size-4"
+                defaultChecked={numberAllowed}
+                onChange={() => {
+                  setNumberAllowed((prev) => !prev);
+                }}
+              />
+              <label
+                className="text-lg mx-2 mr-5 font-bold"
+                htmlFor="numCheckBox"
+              >
+                Numbers
+              </label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="charCheckBox"
+                className="mx-1 size-4"
+                defaultChecked={charAllowed}
+                onChange={() => {
+                  setCharAllowed((prev) => !prev);
+                }}
+              />
+              <label className="text-lg mx-2 font-bold" htmlFor="charCheckBox">
+                Characters
+              </label>
+            </div>
           </div>
-          
         </div>
       </div>
-    </div>
-    
     </>
-  )
+  );
 }
 
-export default App
+export default App;
