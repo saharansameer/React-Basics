@@ -5,15 +5,19 @@ function App() {
   let [count, setCounter] = useState(0);
 
   function addValue() {
-    if (count < 20) {
+    if (count < 100) {
       setCounter(count+1);
+    } else {
+      alert("Counter can not be greater than 100")
     }
   };
 
   function reduceValue() {
     if (count > 0) {
       setCounter(count-1);
-    };
+    } else {
+      alert("Counter can not be less than 0")
+    }
   };
 
   return (
