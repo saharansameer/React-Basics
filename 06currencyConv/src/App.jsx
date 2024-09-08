@@ -46,18 +46,18 @@ function App() {
   };
   return (
     <>
-      <div>
-        <h1 className="text-6xl font-bold text-center text-orange-300 mb-5">
+      <div className="w-full h-screen flex flex-col items-center">
+        <h1 className="text-6xl font-bold text-center text-yellow-400 mb-10">
           Currency Converter
         </h1>
-        <div>
+        <div className="w-full max-w-md mx-auto rounded-xl p-2 bg-slate-200 ">
           <form
             onSubmit={(e) => {
               e.preventDefault();
               convert();
             }}
           >
-            <div>
+            <div className="w-full pb-2">
               <InputField
                 label={"From"}
                 amount={amount}
@@ -67,15 +67,15 @@ function App() {
                 onCurrencyChange={onFromChange}
               />
             </div>
-            <div>
+            <div className="w-full relative">
               <button
                 onClick={currencySwap}
-                className="bg-blue-500 rounded-lg px-2 py-2"
+                className="bg-blue-600 font-bold text-white rounded-lg px-2 py-1 absolute left-1/2 -translate-x-1/2 -translate-y-1/2 hover:bg-blue-800 transition-all ease-in-out delay-100"
               >
                 Swap
               </button>
             </div>
-            <div>
+            <div className="w-full pb-2">
               <InputField
                 label={"To"}
                 amount={convertedAmount}
@@ -85,11 +85,11 @@ function App() {
                 amountDisable={true}
               />
             </div>
-            <div>
+            <div className="w-full flex justify-center">
               <button
                 type="submit"
                 onClick={convert}
-                className=" bg-blue-600 rounded-lg px-2 py-2"
+                className="w-1/2 bg-blue-600 rounded-lg px-2 py-2 font-bold text-white hover:bg-blue-800 transition-all ease-in-out delay-100"
               >
                 Convert
               </button>
