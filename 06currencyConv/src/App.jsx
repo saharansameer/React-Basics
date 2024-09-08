@@ -10,7 +10,17 @@ function App() {
   const [to, setTo] = useState("inr");
   const [convertedAmount, setConvertedAmount] = useState(0);
 
-  const currencyInfo = useCurrencyInfo(from);
+  // Current Date,Month,Year Config
+  const currentDate = new Date()
+  currentDate.setDate(currentDate.getDate()-1);
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth()+1);
+  const date = String(currentDate.getDate());
+  
+  const finalDate = `${year}.${month}.${date}`;
+
+
+  const currencyInfo = useCurrencyInfo(from, finalDate);
   const options = Object.keys(currencyInfo);
 
   // Swapping From & To
