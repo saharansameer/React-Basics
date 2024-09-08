@@ -16,10 +16,9 @@ function App() {
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth()+1;
   const date = currentDate.getDate();
-  
   const finalDate = `${year}.${month}.${date}`;
 
-
+  // Custom Hook - useCurrencyInfo
   const currencyInfo = useCurrencyInfo(from, finalDate);
   const options = Object.keys(currencyInfo);
 
