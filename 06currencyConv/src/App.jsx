@@ -14,8 +14,8 @@ function App() {
   const currentDate = new Date()
   currentDate.setDate(currentDate.getDate()-1);
   const year = currentDate.getFullYear();
-  const month = String(currentDate.getMonth()+1);
-  const date = String(currentDate.getDate());
+  const month = currentDate.getMonth()+1;
+  const date = currentDate.getDate();
   
   const finalDate = `${year}.${month}.${date}`;
 
