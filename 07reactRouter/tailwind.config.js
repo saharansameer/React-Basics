@@ -5,7 +5,11 @@ export default {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'max-md': { 'max': '639px' }, 
+      },
+    },
   },
   plugins: [],
 }
