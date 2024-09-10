@@ -11,14 +11,17 @@ function Dropdown() {
     return (
         <>
             <div className="sm:hidden">
-                <button
-                onClick={toggleDropdown}
-                className="flex flex-col justify-center items-center w-8 h-8 focus:outline-none">
-                    {/* Hamburger icon */}
-                    <span className="block w-6 h-0.5 bg-black mb-1"></span>
-                    <span className="block w-6 h-0.5 bg-black mb-1"></span>
-                    <span className="block w-6 h-0.5 bg-black"></span>
-                </button>
+                <NavLink>
+                    <button
+                    onClick={toggleDropdown}
+                    className="flex flex-col justify-center items-center w-8 h-8 focus:outline-none">
+                        {/* Hamburger icon */}
+                        <span className={`block w-6 h-0.5 mb-1 ${isOpen ? "bg-blue-600" : "bg-black"}`}></span>
+                        <span className={`block w-6 h-0.5 mb-1 ${isOpen ? "bg-blue-600" : "bg-black"}`}></span>
+                        <span className={`block w-6 h-0.5 mb-1 ${isOpen ? "bg-blue-600" : "bg-black"}`}></span>
+                    </button>
+                </NavLink>
+                
                 {/* Dropdown Menu */}
                 {isOpen && (
                     <ul className="absolute top-full bg-white border border-gray-300 rounded-md shadow-lg px-5 py-4 right-3">
