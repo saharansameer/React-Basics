@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../assets/your-logo.png"
 import { Link, NavLink } from "react-router-dom";
+import {Dropdown} from "../index.js";
 
 function Header() {
   return (
@@ -14,7 +15,8 @@ function Header() {
                     className="h-12" />
                 </Link>
             </div>
-            <div className="max-md:hidden"> 
+            <Dropdown />
+            <div className="max-md:hidden">
                 <ul className="flex gap-5">
                     <li>
                         <NavLink
@@ -46,7 +48,7 @@ function Header() {
                     </li>
                 </ul>
             </div>
-            <div className="flex gap-5 items-center">
+            <div className="flex gap-5 items-center max-md:hidden">
                 <Link
                 className="text-gray-600">Log in</Link>
                 <Link
