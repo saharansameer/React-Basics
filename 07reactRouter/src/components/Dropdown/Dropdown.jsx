@@ -11,16 +11,16 @@ function Dropdown() {
     return (
         <>
             <div className="sm:hidden">
-                <NavLink>
-                    <button
-                    onClick={toggleDropdown}
-                    className="flex flex-col justify-center items-center w-8 h-8 focus:outline-none">
-                        {/* Hamburger icon */}
-                        <span className={`block w-6 h-0.5 mb-1 ${isOpen ? "bg-blue-600" : "bg-black"}`}></span>
-                        <span className={`block w-6 h-0.5 mb-1 ${isOpen ? "bg-blue-600" : "bg-black"}`}></span>
-                        <span className={`block w-6 h-0.5 mb-1 ${isOpen ? "bg-blue-600" : "bg-black"}`}></span>
-                    </button>
-                </NavLink>
+                
+                <button
+                onClick={toggleDropdown}
+                className="flex flex-col justify-center items-center w-8 h-8 focus:outline-none">
+                    {/* Hamburger icon */}
+                    <span className={`block w-6 h-0.5 mb-1 ${isOpen ? "bg-blue-600" : "bg-black"}`}></span>
+                    <span className={`block w-6 h-0.5 mb-1 ${isOpen ? "bg-blue-600" : "bg-black"}`}></span>
+                    <span className={`block w-6 h-0.5 mb-1 ${isOpen ? "bg-blue-600" : "bg-black"}`}></span>
+                </button>
+                
                 
                 {/* Dropdown Menu */}
                 {isOpen && (
@@ -28,6 +28,7 @@ function Dropdown() {
                         <li>
                             <NavLink
                             to='/'
+                            onClick={toggleDropdown}
                             className={({isActive}) => `font-bold text-lg ${isActive ? "text-blue-700" : "text-gray-600"} hover:text-blue-700`}>
                                 Home
                             </NavLink>
@@ -35,6 +36,7 @@ function Dropdown() {
                         <li>
                             <NavLink
                             to='/about'
+                            onClick={toggleDropdown}
                             className={({isActive}) => `font-bold text-lg ${isActive ? "text-blue-700" : "text-gray-600"} hover:text-blue-700`}>
                                 About
                             </NavLink>
@@ -42,6 +44,7 @@ function Dropdown() {
                         <li>
                             <NavLink
                             to='/contact'
+                            onClick={toggleDropdown}
                             className={({isActive}) => `font-bold text-lg ${isActive ? "text-blue-700" : "text-gray-600"} hover:text-blue-700`}>
                                 Contact
                             </NavLink>
@@ -49,6 +52,7 @@ function Dropdown() {
                         <li>
                             <NavLink
                             to='/github'
+                            onClick={toggleDropdown}
                             className={({isActive}) => `font-bold text-lg ${isActive ? "text-blue-700" : "text-gray-600"} hover:text-blue-700`}>
                                 Github
                             </NavLink>
