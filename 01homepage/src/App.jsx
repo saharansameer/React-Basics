@@ -52,7 +52,7 @@ function App() {
           </div>
 
           <div className='flex flex-col items-center'>
-            <a href="https://react-06currencycov.vercel.app/" target="_blank">
+            <a href="https://react-06currencyconv.vercel.app/" target="_blank">
               <img
                 className="w-52 shadow-lg shadow-white rounded-xl hover:shadow-yellow-400 transition-all cursor-pointer md:w-72 lg:w-80"
                 src={currconv}
