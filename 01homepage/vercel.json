@@ -1,6 +1,0 @@
-{
-    "routes": [
-      { "src": "/counter", "dest": "../02counter" }
-    ]
-  }
-  
