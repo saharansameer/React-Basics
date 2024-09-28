@@ -1,5 +1,5 @@
 {
     "rewrites": [
-        {"source": "/02counter", "destination": "https://react-sameer.vercel.app/02counter"}
+        {"source": "/02counter", "destination": "https://react-sameer.vercel.app"}
     ]
 }
