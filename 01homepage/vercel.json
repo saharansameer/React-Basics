@@ -1,5 +1,6 @@
 {
-    "rewrites": [
-        {"source": "/02counter", "destination": "https://react-sameer.vercel.app"}
+    "routes": [
+      { "src": "/counter", "dest": "../02counter" }
     ]
-}
+  }
+  
