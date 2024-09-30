@@ -1,8 +1,8 @@
-# React + Vite
+# Tailwind & Props
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates the use of Tailwind CSS for styling and React props for passing data between components.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Tailwind CSS**: Styling is handled through Tailwind's utility-first CSS framework, making the UI design fast and responsive.
+- **Props**: React props are used to pass data between components, ensuring dynamic content rendering and flexibility.
