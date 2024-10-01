@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import "./components/InputField.jsx";
 import InputField from "./components/InputField.jsx";
 import useCurrencyInfo from "./hooks/useCurrencyInfo";
 
 function App() {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState('');
   const [from, setFrom] = useState("usd");
   const [to, setTo] = useState("inr");
-  const [convertedAmount, setConvertedAmount] = useState(0);
+  const [convertedAmount, setConvertedAmount] = useState('');
 
   // Current Date,Month,Year Config
   const currentDate = new Date()
@@ -22,12 +22,16 @@ function App() {
   const currencyInfo = useCurrencyInfo(from, finalDate);
   const options = Object.keys(currencyInfo);
 
+  // When Amount Changes in "To" Field
+  const onAmountChange = (newAmount) => {
+    const cleanedAmount = newAmount.replace(/[^0-9]/g, '');
+    newAmount == 0 ? setAmount('') : setAmount(Number(cleanedAmount));
+  };
+
   // Swapping From & To
   const currencySwap = () => {
     setFrom(to);
     setTo(from);
-    // Clearing Amount Value
-    setAmount(0);
   };
 
   // Converting (e.g. USD to INR)
@@ -35,6 +39,10 @@ function App() {
     let finalAmount = amount * currencyInfo[to];
     setConvertedAmount(finalAmount.toFixed(2));
   };
+
+  useEffect(() => {
+    convert();
+  }, [from, to, amount, currencyInfo])
 
   // From & To Change w/ onCurrencyChange
   const onFromChange = (value) => {
@@ -62,7 +70,7 @@ function App() {
                 amount={amount}
                 currencyOptions={options}
                 selectCurrency={from}
-                onAmountChange={(newAmount) => setAmount(newAmount)}
+                onAmountChange={onAmountChange}
                 onCurrencyChange={onFromChange}
               />
             </div>
@@ -88,7 +96,7 @@ function App() {
               <button
                 type="submit"
                 onClick={convert}
-                className="w-1/2 bg-blue-600 rounded-lg px-2 py-2 font-bold text-white hover:bg-blue-800 transition-all ease-in-out delay-100"
+                className="w-1/2 bg-gray-500 rounded-lg px-2 py-2 font-bold text-white cursor-not-allowed"
               >
                 Convert
               </button>
