@@ -15,12 +15,12 @@ function InputField({
         <div className="w-1/2">
           <p className="mb-2 block">{label}</p>
           <input
-            type="number"
-            className="w-1/2 outline-none bg-transparent py-1 "
+            type="text"
+            className="w-full outline-none bg-transparent p-2 shadow-sm shadow-gray-400 rounded-md"
             placeholder="amount"
             value={amount}
             onChange={(e) =>
-              onAmountChange && onAmountChange(Number(e.target.value))
+              onAmountChange && onAmountChange(e.target.value)
             }
             disabled={amountDisable}
           />
