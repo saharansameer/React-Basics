@@ -20,8 +20,4 @@ This project is a React web application with a theme switcher functionality, bui
 
 ---
 
-**Deployed:** <a href="/" target="_blank">`Not yet deployed`</a>
-
----
-
 This project is designed to practice using React Context and the `useContext` hook for theme management in a simple, component-based setup.
