@@ -2,15 +2,15 @@ import { useTodo } from "../context";
 import { useState } from "react";
 
 function TodoForm() {
-  const [todoTitle, setTodoTitle] = useState("");
+  const [todoText, setTodoText] = useState("");
   const {globalId, addTodo} = useTodo();
 
   const createTodo = (e) => {
     e.preventDefault();
-    if (!todoTitle) return;
+    if (!todoText) return;
 
-    addTodo({id: globalId, todo: todoTitle, completed: false});
-    setTodoTitle("");
+    addTodo({id: Date.now(), todo: todoText, completed: false});
+    setTodoText("");
   };
 
   return (
@@ -19,8 +19,8 @@ function TodoForm() {
         type="text"
         placeholder="Write Todo..."
         className="w-full border border-black/10 rounded-l-lg px-3 outline-none duration-150 bg-white/20 py-1.5"
-        value={todoTitle}
-        onChange={(e) => setTodoTitle(e.target.value)}
+        value={todoText}
+        onChange={(e) => setTodoText(e.target.value)}
       />
       <button
         type="submit"
