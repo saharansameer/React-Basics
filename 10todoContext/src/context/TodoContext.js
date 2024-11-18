@@ -1,9 +1,10 @@
 import {createContext, useContext} from "react"
 
 export const TodoContext = createContext({
+    globalId: 0,
     todos: [
         {
-            id: 1,
+            id: 0,
             todo: "I'm todo",
             completed: false,
         }
