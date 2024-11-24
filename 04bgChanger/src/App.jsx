@@ -15,8 +15,8 @@ function App() {
       <div className="fixed flex flex-wrap justify-center bottom-12 px-2 w-full ">
         <div className="flex flex-wrap justify-center gap-3 shadow-2xl rounded-xl px-6 py-5 bg-gray-100">
           <button
-            onClick={() => setColor("#FFF")}
-            className="bg-gray-200 hover:bg-gray-300 px-4 py-1 rounded-3xl font-bold"
+            onClick={() => setColor("#E8E8E8")}
+            className="bg-[#E8E8E8] hover:bg-gray-300 px-4 py-1 rounded-3xl font-bold"
           >
             Default
           </button>
