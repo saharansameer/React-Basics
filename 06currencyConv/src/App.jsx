@@ -82,7 +82,7 @@ function App() {
                 Swap
               </button>
             </div>
-            <div className="w-full pb-2">
+            <div className="w-full">
               <InputField
                 label={"To"}
                 amount={convertedAmount}
@@ -91,15 +91,6 @@ function App() {
                 onCurrencyChange={onToChange}
                 amountDisable={true}
               />
-            </div>
-            <div className="w-full flex justify-center">
-              <button
-                type="submit"
-                onClick={convert}
-                className="w-1/2 bg-gray-500 rounded-lg px-2 py-2 font-bold text-white cursor-not-allowed"
-              >
-                Convert
-              </button>
             </div>
           </form>
         </div>
