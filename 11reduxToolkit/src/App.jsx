@@ -9,7 +9,7 @@ function App() {
     <div className='w-full max-w-screen-sm mx-auto py-5'>
       <h1 className='text-6xl text-center font-bold pb-10 text-white'>Redux Toolkit</h1>
       <AddTodo />
-      <div className='flex flex-col gap-y-5 justify-center px-16 py-10'>
+      <div className='flex flex-col gap-y-5 justify-center px-5 py-10 sm:px-16'>
         {todos.map((todo) => (
           <TodoItem key={todo.id} todo={todo}/>
         ))
