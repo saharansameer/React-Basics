@@ -24,7 +24,7 @@ function TodoItem({todo}) {
     <div className={`w-full flex flex-col p-2 rounded-lg font-semibold ${isCompleted ? 'bg-gray-600' : 'bg-yellow-200' }`}>
         <input 
         type="text"
-        className={`text-xl bg-transparent outline-none p-1 ${isEditable ? 'shadow-sm shadow-gray-500 rounded-md bg-[#FFBA66]' : ''} ${isCompleted ? 'line-through' : ''}`}
+        className={`text-xl outline-none p-1 ${isEditable ? 'shadow-sm shadow-gray-500 rounded-md bg-[#FFBA66]' : 'bg-transparent'} ${isCompleted ? 'line-through' : ''}`}
         value={todoText}
         readOnly={!isEditable}
         onChange={(e) => setTodoText(e.target.value)}
