@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { removeTodo, updateTodo, markAsDone } from '../features/todo/todoSlice';
 
@@ -12,15 +12,23 @@ function TodoItem({todo}) {
         dispatch(updateTodo({id: id, text: todoText}));
     }
 
+    const inputRef = useRef(null);
+    useEffect(() => {
+        if(isEditable && inputRef.current) {
+            inputRef.current.focus();
+        }
+    }, [isEditable])
+
   return (
 
     <div className={`w-full flex flex-col p-2 rounded-lg font-semibold ${isCompleted ? 'bg-gray-600' : 'bg-yellow-200' }`}>
         <input 
         type="text"
-        className={`text-xl bg-transparent outline-none p-1 ${isEditable ? 'shadow-sm shadow-gray-500 rounded-md' : ''} ${isCompleted ? 'line-through' : ''}`}
+        className={`text-xl bg-transparent outline-none p-1 ${isEditable ? 'shadow-sm shadow-gray-500 rounded-md bg-orange-300' : ''} ${isCompleted ? 'line-through' : ''}`}
         value={todoText}
         readOnly={!isEditable}
         onChange={(e) => setTodoText(e.target.value)}
+        ref={inputRef}
         />
         <div className='flex justify-end gap-x-3 pt-2'>
             <button
