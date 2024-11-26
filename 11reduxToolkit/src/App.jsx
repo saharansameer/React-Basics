@@ -6,7 +6,7 @@ function App() {
   const todos = useSelector((state) => state.todos);
 
   return (
-    <div className='w-full max-w-screen-sm mx-auto py-5'>
+    <div className='w-full max-w-screen-sm mx-auto py-5 px-2'>
       <h1 className='text-6xl text-center font-bold pb-10 text-white'>Redux Toolkit</h1>
       <AddTodo />
       <div className='flex flex-col gap-y-5 justify-center px-5 py-10 sm:px-16'>

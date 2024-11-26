@@ -24,7 +24,7 @@ function TodoItem({todo}) {
     <div className={`w-full flex flex-col p-2 rounded-lg font-semibold ${isCompleted ? 'bg-gray-600' : 'bg-yellow-200' }`}>
         <input 
         type="text"
-        className={`text-xl outline-none p-1 ${isEditable ? 'shadow-sm shadow-gray-500 rounded-md bg-[#FFBA66]' : 'bg-transparent'} ${isCompleted ? 'line-through' : ''}`}
+        className={`outline-none p-1 sm:text-xl  ${isEditable ? 'shadow-sm shadow-gray-500 rounded-md bg-[#FFBA66]' : 'bg-transparent'} ${isCompleted ? 'line-through' : ''}`}
         value={todoText}
         readOnly={!isEditable}
         onChange={(e) => setTodoText(e.target.value)}
@@ -32,7 +32,7 @@ function TodoItem({todo}) {
         />
         <div className='flex justify-end gap-x-3 pt-2'>
             <button
-            className={` px-2 text-lg outline-none rounded-md font-semibold ${isEditable ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-green-400 hover:bg-green-500'}`}
+            className={`px-2 sm:text-lg outline-none rounded-md font-semibold ${isEditable ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-green-400 hover:bg-green-500'}`}
             onClick={() => {
                 setCompleted(!isCompleted);
                 dispatch(markAsDone(todo.id));
@@ -43,7 +43,7 @@ function TodoItem({todo}) {
             </button>
 
             <button
-            className={`px-2 text-lg outline-none rounded-md  font-semibold ${isCompleted ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-orange-400 hover:bg-orange-500'}`}
+            className={`px-2 sm:text-lg outline-none rounded-md  font-semibold ${isCompleted ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-orange-400 hover:bg-orange-500'}`}
             disabled={isCompleted}
             onClick={() => {             
                 setEditable(false);
@@ -59,7 +59,7 @@ function TodoItem({todo}) {
             </button>
 
             <button
-            className='bg-red-400 px-2 text-lg outline-none rounded-md hover:bg-red-500 font-semibold'
+            className='bg-red-400 px-2 sm:text-lg outline-none rounded-md hover:bg-red-500 font-semibold'
             onClick={() => dispatch(removeTodo(todo.id))}>
                 Delete
             </button>
