@@ -3,5 +3,11 @@
 @tailwind utilities;
 
 :root {
-  background-color: #242424;
+  background-color: #2C2C2C;
+}
+
+@layer utilities {
+  .responsive {
+    @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl
+  }
 }
