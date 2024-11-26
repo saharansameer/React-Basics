@@ -12,7 +12,7 @@ This project is a basic React web application demonstrating the use of Redux Too
 
 ## Hooks and Tools
 
-- **useDispatch**: Used to dispatch `addTodo` and `removeTodo` actions to the Redux store.
+- **useDispatch**: Used to dispatch `addTodo`, `removeTodo`, `updateTodo` and `markAsDone` actions to the Redux store.
 - **useSelector**: Retrieves the list of todos from the Redux store for display.
 
 ## Components
@@ -20,9 +20,10 @@ This project is a basic React web application demonstrating the use of Redux Too
 - **TodoForm**: 
   - A form component for users to add new todos.
   - Dispatches the `addTodo` action to update the Redux store.
-- **TodoList**: 
-  - Displays the list of todos stored in the Redux state.
-  - Allows users to remove todos by dispatching the `removeTodo` action.
+- **TodoItem**:
+  - A component that displays individual todos.
+  - Allows users to edit, mark as done, and delete todos.
+  - Dispatches `updateTodo`, `markAsDone`, and `removeTodo` actions as needed.
 - **todoSlice**: 
   - Contains the initial state and reducers for managing the todo list.
   - Defines actions for adding and removing todos, which are integrated into the Redux store via `configureStore`.
