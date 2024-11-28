@@ -45,15 +45,11 @@ function TodoItem({todo}) {
             <button
             className={`px-2 sm:text-lg outline-none rounded-md  font-semibold ${isCompleted ? 'cursor-not-allowed bg-gray-500 hover:bg-gray-500' : 'bg-orange-400 hover:bg-orange-500'}`}
             disabled={isCompleted}
-            onClick={() => {             
-                setEditable(false);
-
+            onClick={() => {            
                 if (isEditable) {
                     editTodo(todo.id);
-                } else {
-                    setEditable(!isEditable)
-                }
-                
+                } 
+                setEditable(!isEditable);      
             }}>
                 {isEditable ? 'Save' : 'Edit'}
             </button>
