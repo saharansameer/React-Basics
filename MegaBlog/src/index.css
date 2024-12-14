@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer utilities {
-    .responsive {
-      @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl
-    }
+  .responsive {
+    @apply md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl
   }
+}
