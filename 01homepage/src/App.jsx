@@ -11,8 +11,8 @@ function App() {
       <div className='flex flex-wrap justify-center gap-20 py-10 '>
         <Project title={'Currency Converter'} link={'https://react-06currencyconv.vercel.app/'} image={'/currconv.png'} />
         <Project title={'Password Generator'} link={'https://react-05passwordgen.vercel.app/'} image={'/passgen.png'} />
-        <Project title={'React Router'} link={'https://react-07reactrouter.vercel.app/'} image={'/reactrouterimg.png'} />
         <Project title={'Redux Toolkit'} link={'https://react-11reduxtoolkit.vercel.app/'} image={'/reduxtoolkit.png'} />
+        <Project title={'React Router'} link={'https://react-07reactrouter.vercel.app/'} image={'/reactrouterimg.png'} />
         <Project title={'Background Changer'} link={'https://react-04bgchanger.vercel.app/'} image={'/bgchanger.png'} />
         <Project title={'Counter'} link={'https://react-02counter.vercel.app/'} image={'/counter.png'} />
       </div>
