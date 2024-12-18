@@ -65,7 +65,30 @@ export class DatabaseService {
         }
     };
 
-    
+    async getPost(slug) {
+        try {
+            return await this.databases.getDocument(
+                config.appwriteDatabaseId,
+                config.appwriteCollectionId,
+                slug,
+            );
+        } catch (error) {
+            console.log("Appwrite/getPost : ", error);
+            return false;
+        }
+    };
+
+    async getAllPosts() {
+        try {
+            return await this.databases.listDocuments(
+                config.appwriteDatabaseId,
+                config.appwriteCollectionId
+            )
+        } catch (error) {
+            console.log("Appwrite/getAllPosts : ", error);
+            return false;
+        }
+    };
 }
 
 const dbService = new DatabaseService();
