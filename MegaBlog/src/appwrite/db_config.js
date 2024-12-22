@@ -1,10 +1,10 @@
 import config from "../config/config.js";
-import { Client, Databases, Storage } from "appwrite";
+import { Client, Databases, Storage, Query, ID } from "appwrite";
 
 export class DatabaseService {
     client = new Client();
     databases;
-    storage;
+    bucket;
 
     constructor() {
         this.client
@@ -12,7 +12,7 @@ export class DatabaseService {
         .setProject(config.appwriteProjectId);
 
         this.databases = new Databases(this.client);
-        this.storage = new Storage(this.client);
+        this.bucket = new Storage(this.client);
     }
 
     async createPost({slug, title, content, featuredImage, status, userId }) {
@@ -78,17 +78,50 @@ export class DatabaseService {
         }
     };
 
-    async getAllPosts() {
+    async getAllPosts(queries = [Query.equal("status", "active")]) {
         try {
             return await this.databases.listDocuments(
                 config.appwriteDatabaseId,
-                config.appwriteCollectionId
+                config.appwriteCollectionId,
+                queries,
             )
         } catch (error) {
             console.log("Appwrite/getAllPosts : ", error);
             return false;
         }
     };
+
+    // File upload/delete services
+
+    async uploadFile(file) {
+        try {
+            return await this.bucket.createFile(
+                config.appwriteBucketId,
+                ID.unique(),
+                file,
+            );
+        } catch (error) {
+            console.log("Appwrite/uploadFile : ", error);
+        }
+    };
+
+    async deleteFile(fileId) {
+        try {
+            return await this.bucket.deleteFile(
+                config.appwriteBucketId,
+                fileId,
+            );
+        } catch (error) {
+            console.log("Appwrite/deleteFile : ", error);
+        }
+    };
+
+    getFilePreview(fileId) {
+        return this.bucket.getFilePreview(
+            config.appwriteBucketId,
+            fileId, 
+        );
+    }
 }
 
 const dbService = new DatabaseService();
