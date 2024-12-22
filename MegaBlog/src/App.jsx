@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom"
+import {Header, Footer} from "./layout"
 
 function App() {
 
@@ -6,7 +7,7 @@ function App() {
     <div className="w-full bg-[#232323]"> 
 
       <div className="w-full sticky top-0 h-5 bg-slate-500">
-        {/* Header */}
+        {<Header />}
       </div>
 
       <div className='w-full max-w-screen-sm mx-auto min-h-screen px-5 responsive'>
@@ -14,7 +15,7 @@ function App() {
       </div>
 
       <div className="w-full h-5 bg-slate-500">
-        {/* Footer */}
+        {<Footer />}
       </div>
     </div>
    
