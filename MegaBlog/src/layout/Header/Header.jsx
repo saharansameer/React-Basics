@@ -7,11 +7,7 @@ function Header() {
   const dispatch = useDispatch();
 
   const toggleThemeHandler = () => {
-    if (currTheme == "dark") {
-      setCurrTheme("light");
-    } else {
-      setCurrTheme("dark");
-    }
+    setCurrTheme((prevTheme) => prevTheme == "dark" ? "light" : "dark");
 
     dispatch(toggleThemeMode(currTheme));
   };
