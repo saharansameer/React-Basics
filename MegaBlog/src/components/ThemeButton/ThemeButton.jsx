@@ -12,10 +12,19 @@ function ThemeButton() {
       dispatch(toggleThemeMode(nextTheme));
     };
 
+    // Read theme from local storage when component mounts
+    useEffect(() => {
+      const localTheme = localStorage.getItem("themeMode");
+      if (localTheme) {
+        dispatch(toggleThemeMode(localTheme));
+      }
+    }, [dispatch]);
+
     // Fires whenever currTheme get changed and Update theme in <html class="">
     useEffect(() => {
         document.querySelector('html').classList.remove('light', 'dark');
         document.querySelector('html').classList.add(currTheme);
+        localStorage.setItem("themeMode", currTheme);
     }, [currTheme]);
 
   return (
