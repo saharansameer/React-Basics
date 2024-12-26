@@ -1,16 +1,15 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import { toggleThemeMode } from '../../features/theme/themeSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function ThemeButton() {
-    const [currTheme, setCurrTheme] = useState("dark");
+    const currTheme = useSelector((state) => state.theme.themeMode);
     const dispatch = useDispatch();
 
     // Theme Switcher e.g Light or Dark
     const toggleThemeHandler = () => {
-        setCurrTheme((prevTheme) => prevTheme == "dark" ? "light" : "dark");
-
-        dispatch(toggleThemeMode(currTheme));
+      const nextTheme = currTheme == "dark" ? "light" : "dark";
+      dispatch(toggleThemeMode(nextTheme));
     };
 
     // Fires whenever currTheme get changed and Update theme in <html class="">
@@ -22,8 +21,8 @@ function ThemeButton() {
   return (
     <button 
     onClick={toggleThemeHandler}
-    className='rounded-full p-5 transition-all ease-in-out'
-    style={{backgroundImage: `url(${currTheme == 'light' ? '/dark-theme.svg' : '/light-theme.svg'})`, backgroundSize: 'cover', backgroundPosition: 'center'}}
+    className='rounded-full p-4 transition-all ease-in-out hover:bg-[#d5d2d2] dark:hover:bg-[#3f3e3e]'
+    style={{backgroundImage: `url(${currTheme == 'light' ? '/dark-mode.svg' : '/light-mode.svg'})`, backgroundSize: 'cover', backgroundPosition: 'center'}}
     >
     </button>
   )
