@@ -1,4 +1,5 @@
 import ThemeButton from "./ThemeButton/ThemeButton";
-import Button from "./Button/Button";
+import Button from "./Common/Button";
+import Input from "./Common/Input";
 
-export {ThemeButton, Button};
+export {ThemeButton, Button, Input};
