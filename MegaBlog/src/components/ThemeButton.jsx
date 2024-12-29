@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import { toggleThemeMode } from '../../features/theme/themeSlice';
+import { toggleThemeMode } from '../features/theme/themeSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 function ThemeButton() {
