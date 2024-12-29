@@ -1,29 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { ThemeButton } from "../../components"
+import React from 'react';
+import { ThemeButton, Button } from "../../components"
 import LogoutButton from "./LogoutButton";
 import { useSelector } from 'react-redux';
-import { useNavigate, Link} from "react-router-dom";
+import { useNavigate, Link, NavLink, useLocation} from "react-router-dom";
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.status);
   const currTheme = useSelector((state) => state.theme.themeMode);
+
+  const location = useLocation();
+  const hideButton = location.pathname == '/login' || location.pathname == '/signup'; 
 
   const navigate = useNavigate(); 
   const navItems = [
     {
       name: 'Home',
       slug: '/',
-      active: true,
-    },
-    {
-      name: 'Login',
-      slug: '/login',
-      active: !authStatus,
-    },
-    {
-      name: 'Signup',
-      slug: '/signup',
-      active: !authStatus,
+      active: authStatus,
     },
     {
       name: 'Posts',
@@ -49,8 +42,10 @@ function Header() {
         <ul className='flex gap-x-5 list-none'>
           {navItems.map((item, index) => 
             item.active ? (
-              <li key={`nav-li-${index}`}>
-
+              <li key={`nav-li-${index}`} className='dark:text-white'>
+                <NavLink to={item.slug}>
+                  {item.name}
+                </NavLink>
               </li>
             ) : null
 
@@ -60,7 +55,14 @@ function Header() {
 
       <div className='flex items-center gap-x-5'>
         <div>
-          <LogoutButton />   
+          {authStatus ? <LogoutButton /> : null}
+          {!authStatus && !hideButton ? 
+            <Button
+            text={"Login / Signup"}
+            className={'px-2 py-1 rounded-md'}
+            onClick={() => navigate("/login")}
+            /> 
+            : null}
         </div>
         
         <span className='w-[1px] h-10 bg-[#646464] dark:bg-[#f1f1f1]'></span>
