@@ -25,7 +25,7 @@ function Header() {
     },
     {
       name: 'Create Post',
-      slug: '/create',
+      slug: '/add',
       active: authStatus
     },
   ];
@@ -43,9 +43,11 @@ function Header() {
           {navItems.map((item, index) => 
             item.active ? (
               <li key={`nav-li-${index}`} className='dark:text-white'>
-                <NavLink to={item.slug}>
+                <button
+                onClick={() => navigate(item.slug)}
+                >
                   {item.name}
-                </NavLink>
+                </button>
               </li>
             ) : null
 
