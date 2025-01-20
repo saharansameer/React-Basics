@@ -32,9 +32,6 @@ export default function ViewPost() {
     });
   };
 
-  console.log(slug);
-  console.log("Post: ::", post);
-  
   return post ? (
     <div className="py-8">
         <div className="w-full flex justify-center mb-4 border rounded-xl p-2">
