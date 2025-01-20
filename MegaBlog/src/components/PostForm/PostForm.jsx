@@ -34,7 +34,7 @@ function PostForm({post}) {
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
-                const dbPost = await dbService.createPost({...data, userId: userData.$id});
+                const dbPost = await dbService.createPost({...data, userId: userData.$id, userName: userData.name});
                 if (dbPost) navigate(`/posts/${dbPost.$id}`);
             }
         }
@@ -103,7 +103,7 @@ function PostForm({post}) {
             <Select
                 options={["active", "inactive"]}
                 label={{text: "Status : ", style: "font-semibold dark:text-white"}}
-                className="px-2 py-1 mb-5 rounded-lg"
+                className="w-20 sm:w-28 px-2 py-1 mb-5 rounded-lg"
                 {...register("status", { required: true })}
             />
             <Button text={post ? "Update" : "Submit"} type="submit" className={'w-1/3 px-2 py-1 rounded-md'} />
