@@ -19,11 +19,6 @@ function Header() {
       active: authStatus,
     },
     {
-      name: 'Posts',
-      slug: '/posts',
-      active: authStatus,
-    },
-    {
       name: 'Create Post',
       slug: '/add',
       active: authStatus
@@ -31,19 +26,20 @@ function Header() {
   ];
 
   return (
-    <div className='w-full max-w-screen-sm mx-auto px-5 responsive flex gap-x-20'>
+    <div className='w-full flex justify-between gap-x-20 max-w-screen-sm mx-auto px-5 responsive '>
       <div>
         <Link to="/">
-          <img src={currTheme == "dark" ? "/blog-logo-white.svg" : "/blog-logo.svg"} className='w-14'/>
+          <img src={currTheme == "dark" ? "/blog-logo-white.svg" : "/blog-logo.svg"} className='w-14 min-w-14'/>
         </Link>
       </div>
       
-      <div>
-        <ul className='flex gap-x-5 list-none'>
+      <div className='hidden sm:flex sm:items-center '>
+        <ul className='flex gap-x-10 list-none'>
           {navItems.map((item, index) => 
             item.active ? (
               <li key={`nav-li-${index}`} className='dark:text-white'>
                 <button
+                className='font-bold text-xl hover:text-orange-400 dark:hover:text-yellow-300 transition-all ease-in-out'
                 onClick={() => navigate(item.slug)}
                 >
                   {item.name}
@@ -67,9 +63,9 @@ function Header() {
             : null}
         </div>
         
-        <span className='w-[1px] h-10 bg-[#646464] dark:bg-[#f1f1f1]'></span>
+        <span className='w-[1px] h-10 bg-[#646464] dark:bg-[#f1f1f1] hidden sm:block'></span>
 
-        <div>
+        <div className='hidden sm:block'>
           <ThemeButton />
         </div>
       </div>
