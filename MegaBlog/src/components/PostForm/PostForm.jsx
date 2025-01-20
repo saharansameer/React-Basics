@@ -103,7 +103,7 @@ function PostForm({post}) {
             <Select
                 options={["active", "inactive"]}
                 label={{text: "Status : ", style: "font-semibold dark:text-white"}}
-                className="w-20 sm:w-28 px-2 py-1 mb-5 rounded-lg"
+                className="w-24 sm:w-28 px-2 py-1 mb-5 rounded-lg"
                 {...register("status", { required: true })}
             />
             <Button text={post ? "Update" : "Submit"} type="submit" className={'w-1/3 px-2 py-1 rounded-md'} />
