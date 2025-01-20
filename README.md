@@ -10,6 +10,7 @@ The **01homepage** project serves as the entry point for this repository. It con
 ---
 
 ## Deployed Projects
+- <a href="https://megablogx.vercel.app/" target="_blank">`Mega Blog`</a>
 - <a href="https://react-05passwordgen.vercel.app/" target="_blank">`Password Generator`</a>
 - <a href="https://react-06currencyconv.vercel.app/" target="_blank">`Currency Converter`</a>
 - <a href="https://react-11reduxtoolkit.vercel.app/" target="_blank">`Redux Toolkit`</a>
