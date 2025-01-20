@@ -24,7 +24,7 @@ function Home() {
   return loading ? (
     <div className='w-full py-10 dark:text-white text-center'>
         <h1 className='text-4xl font-bold py-5'>wow! such an empty</h1>
-        <h3 className='font-semibold'>{authStatus ? "Posts are being loaded..." : "Signup or Login to view all blog posts"}</h3>
+        <h3 className='font-semibold'>{authStatus ? "Posts are being loaded..." : "Signup or Login to read blog posts"}</h3>
     </div>
   ) : (
     <div className='w-full py-10'>
