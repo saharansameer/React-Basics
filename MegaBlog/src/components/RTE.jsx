@@ -7,7 +7,7 @@ function RTE({name, control, label, defaultValue = ""}) {
 
   return (
     <div className='w-full'>
-      {label && <label className='inline-block'>{label}</label>}
+      {label && <label className='inline-block dark:text-white font-semibold'>{label}</label>}
       <Controller 
       name={name || "no name"}
       control={control}
@@ -20,6 +20,11 @@ function RTE({name, control, label, defaultValue = ""}) {
             initialValue: defaultValue,
             height: 500,
             menubar: true,
+            mobile: {
+              menubar: false,
+              plugins: 'autosave lists autolink',
+              toolbar: 'undo bold italic styles',
+            },
             plugins: [
                 "image",
                 "advlist",
