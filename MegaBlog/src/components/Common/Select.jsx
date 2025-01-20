@@ -8,7 +8,7 @@ const Select = forwardRef(({
 }, ref) => {
     const id = useId();
     return (
-        <div>
+        <div className='flex flex-col gap-y-2'>
             {label && <label
             htmlFor={id}
             className={`${label.style}`}
