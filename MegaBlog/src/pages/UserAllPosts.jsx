@@ -21,7 +21,8 @@ function UserAllPosts() {
 
   return posts.length > 0 ? (
     <div className='w-full py-8'>
-    <div className='flex flex-wrap justify-center gap-5 sm:gap-20'>
+    <h1 className='text-2xl text-center font-bold dark:text-white'>{userData.name}'s posts</h1>
+    <div className='flex flex-wrap justify-center gap-5 sm:gap-20 py-10'>
       {posts.map((post) => (
         <div key={post.$id} className='p-2 min-w-64 w-64 lg:w-80'>
           <PostCard {...post} />
