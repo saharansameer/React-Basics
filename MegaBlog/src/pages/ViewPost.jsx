@@ -43,20 +43,19 @@ export default function ViewPost() {
             alt={post.title}
             className="rounded-xl"
             />
-
-            {isAuthor && (
-            <div className="absolute right-6 top-6">
-                <Link to={`/edit/${post.$id}`}>
-                  <Button  text={"Edit"}/>
-                </Link>
-                <Button text={"Delete"} onClick={deletePost} />
-            </div>
-            )}
         </div>
+        {isAuthor && (
+          <div className="w-full flex justify-end gap-5">
+              <Link to={`/edit/${post.$id}`}>
+                <Button text={"Edit"} className={'px-2 py-1 rounded-md'} />
+              </Link>
+              <Button text={"Delete"} className={'px-2 py-1 rounded-md'} onClick={deletePost} />
+          </div>
+        )}
         <div className="w-full mb-6">
-            <h1 className="text-2xl font-bold">{post.title}</h1>
+            <h1 className="text-2xl font-bold dark:text-white">{post.title}</h1>
         </div>
-        <div className="browser-css">{parse(post.content)}</div>
+        <div className="browser-css dark:text-white">{parse(post.content)}</div>
     </div>
   ) : null;
 }
