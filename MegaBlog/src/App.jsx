@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import {Header, Footer} from "./layout";
+import { BottomNavBar } from "./layout";
 
 function App() {
 
@@ -13,8 +14,11 @@ function App() {
       <div className='w-full max-w-screen-sm mx-auto min-h-screen px-5 responsive'>
         <Outlet />
       </div>
+      <div className='sm:hidden'>
+        <BottomNavBar />
+      </div>
 
-      <div className="w-full py-5 bg-slate-500">
+      <div className="w-full py-10 bg-white dark:bg-[#141414] dark:text-white">
         {<Footer />}
       </div>
     </div>
