@@ -20,7 +20,6 @@ function PostForm({post}) {
     const userData = useSelector((state) => state.auth.userData);
     
     const submit = async (data) => {
-        console.log(data)
         if (post) {
             const file = data.image[0] ? await dbService.uploadFile(data.image[0]) : null;
             if (file) dbService.deleteFile(post.featuredImage);
@@ -73,8 +72,8 @@ function PostForm({post}) {
             {...register("title", { required: true })}
             />
             <Input
-            label="Slug :"
-            placeholder="Slug"
+            label="Custom URL :"
+            placeholder="/"
             className="mb-4"
             {...register("slug", { required: true })}
             onInput={(e) => {
