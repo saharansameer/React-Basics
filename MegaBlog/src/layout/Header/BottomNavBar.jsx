@@ -13,6 +13,11 @@ const navigate = useNavigate();
       active: authStatus,
     },
     {
+      name: 'Posts',
+      slug: '/posts',
+      active: authStatus
+    },
+    {
       name: 'Create Post',
       slug: '/add',
       active: authStatus

@@ -19,6 +19,11 @@ function Header() {
       active: authStatus,
     },
     {
+      name: 'Posts',
+      slug: '/posts',
+      active: authStatus
+    },
+    {
       name: 'Create Post',
       slug: '/add',
       active: authStatus
@@ -39,7 +44,7 @@ function Header() {
             item.active ? (
               <li key={`nav-li-${index}`} className='dark:text-white'>
                 <button
-                className='font-bold text-xl hover:text-orange-400 dark:hover:text-yellow-300 transition-all ease-in-out'
+                className='font-bold text-sm lg:text-xl hover:text-orange-400 dark:hover:text-yellow-300 transition-all ease-in-out'
                 onClick={() => navigate(item.slug)}
                 >
                   {item.name}
