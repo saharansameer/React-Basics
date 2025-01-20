@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import authService from "../appwrite/auth";
 import { userLogin, userLogout } from "../features/auth/authSlice";
 import {AllPosts} from './index';
 
 function Home() {
-  const [loading, setLoading] = useState(false);
+  const authStatus = useSelector((state) => state.auth.status);
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,12 +18,13 @@ function Home() {
         dispatch(userLogout());
       }
     })
-    .finally(() => setLoading(false));
+    .then(() => setLoading(false));
   }, []);
 
   return loading ? (
-    <div>
-      {/* While Loading.. */}
+    <div className='w-full py-10 dark:text-white text-center'>
+        <h1 className='text-4xl font-bold py-5'>wow! such an empty</h1>
+        <h3 className='font-semibold'>{authStatus ? "Posts are being loaded..." : "Signup or Login to view all blog posts"}</h3>
     </div>
   ) : (
     <div className='w-full py-10'>
