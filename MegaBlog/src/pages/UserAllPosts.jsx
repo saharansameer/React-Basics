@@ -32,7 +32,7 @@ function UserAllPosts() {
   ) : (
     <div className='w-full py-8 dark:text-white text-center'>
         <h1 className='text-4xl font-bold py-5'>wow! such an empty</h1>
-        <h3 className='font-semibold'>You haven't created any post yet</h3>
+        <h3 className='font-semibold'>Haven't created any post yet ?</h3>
     </div>
   )
 }
