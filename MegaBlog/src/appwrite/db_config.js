@@ -15,7 +15,7 @@ export class DatabaseService {
         this.bucket = new Storage(this.client);
     }
 
-    async createPost({slug, title, content, featuredImage, status, userId }) {
+    async createPost({slug, title, content, featuredImage, status, userId, userName }) {
         try {
             return await this.databases.createDocument(
                 config.appwriteDatabaseId,
@@ -27,6 +27,7 @@ export class DatabaseService {
                     featuredImage,
                     status,
                     userId,
+                    userName,
                 }
             );
         } catch (error) {
@@ -87,6 +88,19 @@ export class DatabaseService {
             )
         } catch (error) {
             console.log("Appwrite/getAllPosts : ", error);
+            return false;
+        }
+    };
+
+    async getUserAllPosts(userId) {
+        try {
+            return await this.databases.listDocuments(
+                config.appwriteDatabaseId,
+                config.appwriteCollectionId,
+                [Query.equal("userId", userId)],
+            )
+        } catch (error) {
+            console.log("Appwrite/getUserAllPosts : ", error);
             return false;
         }
     };
