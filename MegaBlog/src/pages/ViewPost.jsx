@@ -57,5 +57,10 @@ export default function ViewPost() {
         </div>
         <div className="browser-css dark:text-white">{parse(post.content)}</div>
     </div>
-  ) : null;
+  ) : 
+  (
+    <div className='w-full py-8 dark:text-white text-center'>
+      <h1 className='text-3xl font-bold py-5'>be patient! post is loading...</h1>
+    </div>
+  );
 }
