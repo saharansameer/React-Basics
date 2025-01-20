@@ -4,7 +4,7 @@ import App from './App.jsx';
 import {Route, RouterProvider, createBrowserRouter, createRoutesFromElements} from "react-router-dom";
 import {Provider} from "react-redux";
 import {store} from "./redux/store.js";
-import { Home, Login, Signup, AllPosts, EditPost, AddPost, ViewPost } from "./pages";
+import { Home, Login, Signup, AllPosts, EditPost, AddPost, ViewPost, UserAllPosts } from "./pages";
 import { AuthLayout } from "./components";
 
 const router = createBrowserRouter(
@@ -13,7 +13,7 @@ const router = createBrowserRouter(
       <Route path='/' element={<Home />} />
       <Route path='/login' element={<Login /> } />
       <Route path='/signup' element={<Signup /> } />
-      <Route path='/posts' element={<AllPosts />} />
+      <Route path='/posts' element={<UserAllPosts />} />
       <Route path='/posts/:slug' element={<ViewPost />} />
       <Route path='/edit/:slug' element={<EditPost />} />
       <Route path='/add' element={<AddPost />} />
