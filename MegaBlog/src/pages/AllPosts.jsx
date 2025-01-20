@@ -5,16 +5,22 @@ import { setPosts } from '../features/post/postSlice';
 import { useSelector, useDispatch } from 'react-redux';
 function AllPosts() {
   const dispatch = useDispatch();
+  const authStatus = useSelector((state) => state.auth.status);
   const posts = useSelector((state) => state.post.posts);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const data = await dbService.getAllPosts();
-      if (data) dispatch(setPosts(data.documents));
+    if (authStatus) {
+      const fetchPosts = async () => {
+        const data = await dbService.getAllPosts();
+        if (data) dispatch(setPosts(data.documents));
+      }
+  
+      fetchPosts();
+    } else {
+      dispatch(setPosts([]));
     }
-
-    fetchPosts();
-  }, [dispatch]);
+    
+  }, [dispatch, authStatus]);
 
   return (
   <div className='w-full py-8'>
