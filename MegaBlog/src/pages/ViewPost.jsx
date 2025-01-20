@@ -37,7 +37,7 @@ export default function ViewPost() {
   
   return post ? (
     <div className="py-8">
-        <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
+        <div className="w-full flex justify-center mb-4 border rounded-xl p-2">
             <img
             src={dbService.getFilePreview(post.featuredImage)}
             alt={post.title}
