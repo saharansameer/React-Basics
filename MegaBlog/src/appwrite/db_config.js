@@ -79,12 +79,15 @@ export class DatabaseService {
         }
     };
 
-    async getAllPosts(queries = [Query.equal("status", "active")]) {
+    async getAllPosts() {
         try {
             return await this.databases.listDocuments(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                queries,
+                [
+                    Query.equal("status", "active"),
+                    Query.orderDesc('$createdAt'),
+                ],
             )
         } catch (error) {
             console.log("Appwrite/getAllPosts : ", error);
