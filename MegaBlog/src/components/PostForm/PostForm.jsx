@@ -24,7 +24,7 @@ function PostForm({post}) {
             const file = data.image[0] ? await dbService.uploadFile(data.image[0]) : null;
             if (file) dbService.deleteFile(post.featuredImage);
 
-            const dbPost = await dbService.updatePost(post.$id, {...data, featuredImage: file ? file.id : undefined});
+            const dbPost = await dbService.updatePost(post.$id, {...data, featuredImage: file ? file.$id : undefined});
             if (dbPost) navigate(`/posts/${dbPost.$id}`); 
 
         } else {
@@ -44,7 +44,7 @@ function PostForm({post}) {
             return value
             .trim()
             .toLowerCase()
-            .replace(/[^a-zA-Z\d\s]+/g, '')
+            .replace(/[^a-zA-Z\d\s]+/g, '-')
             .replace(/\s+/g, '-');;
         };
         return '';
@@ -61,6 +61,13 @@ function PostForm({post}) {
             subscription.unsubscribe();
         }
     }, [watch, slugTransform, setValue]);
+
+    useEffect(() => {
+        if (post?.title) {
+            setValue('slug', slugTransform(post.title), {shouldValidate: true});
+        }
+    }, 
+    [post?.title, post?.content, post?.status, post?.featuredImage]);
 
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-col gap-5">
