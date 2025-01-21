@@ -11,7 +11,6 @@ function UserAllPosts() {
     useEffect(() => {
         const fetchPosts = async () => {
             const data = await dbService.getUserAllPosts(userData.$id);
-            console.log(data)
             if (data) setPosts(data.documents);
         };
 
