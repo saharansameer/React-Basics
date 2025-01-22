@@ -29,11 +29,6 @@ function App() {
           image={"/reduxtoolkit.png"}
         />
         <Project
-          title={"React Router"}
-          link={"https://react-07reactrouter.vercel.app/"}
-          image={"/reactrouterimg.png"}
-        />
-        <Project
           title={"Background Changer"}
           link={"https://react-04bgchanger.vercel.app/"}
           image={"/bgchanger.png"}
