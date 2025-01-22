@@ -9,7 +9,7 @@ function App() {
         React Beginner Projects
       </h1>
       <div className='flex flex-wrap justify-center gap-20 py-10 '>
-        <Project title={'Mega Blog'} link={'https://memgablogxvercel.app/'} image={'/megablogx.png'} />
+        <Project title={'Mega Blog'} link={'https://memgablogx.vercel.app/'} image={'/megablogx.png'} />
         <Project title={'Currency Converter'} link={'https://react-06currencyconv.vercel.app/'} image={'/currconv.png'} />
         <Project title={'Password Generator'} link={'https://react-05passwordgen.vercel.app/'} image={'/passgen.png'} />
         <Project title={'Redux Toolkit'} link={'https://react-11reduxtoolkit.vercel.app/'} image={'/reduxtoolkit.png'} />
