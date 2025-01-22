@@ -13,7 +13,7 @@ function LogoutButton() {
     authService.logout()
     .then(() => {
       dispatch(userLogout())
-      navigate("/");
+      navigate("/login");
     })
   };
 
