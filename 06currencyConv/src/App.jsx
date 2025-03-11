@@ -6,8 +6,8 @@ import useCurrencyInfo from "./hooks/useCurrencyInfo";
 
 function App() {
   const [amount, setAmount] = useState('');
-  const [from, setFrom] = useState("usd");
-  const [to, setTo] = useState("inr");
+  const [from, setFrom] = useState("USD");
+  const [to, setTo] = useState("INR");
   const [convertedAmount, setConvertedAmount] = useState('');
 
   // Current Date,Month,Year Config
@@ -19,8 +19,8 @@ function App() {
   const finalDate = `${year}.${month}.${date}`;
 
   // Custom Hook - useCurrencyInfo
-  const currencyInfo = useCurrencyInfo(from, finalDate);
-  const options = Object.keys(currencyInfo);
+  const currencyInfo = useCurrencyInfo(from.toLowerCase(), finalDate);
+  const options = Object.keys(currencyInfo).map(currency => currency.toUpperCase());
 
   // When Amount Changes in "To" Field
   const onAmountChange = (newAmount) => {
@@ -36,7 +36,7 @@ function App() {
 
   // Converting (e.g. USD to INR)
   const convert = () => {
-    let finalAmount = amount * currencyInfo[to];
+    let finalAmount = amount * currencyInfo[to.toLowerCase()];
     setConvertedAmount(finalAmount.toFixed(2));
   };
 
